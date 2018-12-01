@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+</head>
+<body>
+  <form method="post">
+    <h1>News App Login</h1>
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field }}
+    {% endfor %}
+    {% for field, error in form.errors.items %}
+       {% if field != '__all__' %}{{ field }}{% endif %}
+       <div class="error">{{ error | striptags }}</div>
+    {% endfor %}
+    <button>Submit</button>
+  </form>
+</body>
+</html>

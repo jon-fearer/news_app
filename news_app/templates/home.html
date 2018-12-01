@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% csrf_token %}
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/home.css" %}">
+  <script src="{% static "js/home.js" %}"></script>
+</head>
+<body>
+  <div id="banner">
+    <a id="logout" href="/logout">LOG OUT</a>
+  </div>
+  <div class="container">
+    <div id="leftpane">
+      <div id="spacer"></div>
+      <div class="selector" id="usselector">
+        <div id="ustext">United States</div>
+      </div>
+      <div class="selector" id="naselector">
+        <div id="natext">North America</div>
+      </div>
+      <div class="selector" id="worldselector">
+        <div id="worldtext">World</div>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="headlines">
+      {% for article in articles %}
+      <div id="headline{{article.rank}}">
+        <img src="{{article.thumbnail_link}}" class="thumbnail">
+      </div>
+      {% endfor %}
+    </div>
+    <div id="tweets"></div>
+  </div>
+</body>
