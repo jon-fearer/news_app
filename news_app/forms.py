@@ -16,7 +16,8 @@ class LoginForm(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         if not user or not user.is_active:
-            raise forms.ValidationError("Either your username or password is invalid.")
+            raise forms.ValidationError(
+                "Either your username or password is invalid.")
         return self.cleaned_data
 
     def login(self, request):

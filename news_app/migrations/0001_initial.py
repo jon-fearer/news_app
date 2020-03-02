@@ -15,7 +15,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Article',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('title', models.CharField(max_length=500)),
                 ('content_link', models.CharField(max_length=500)),
                 ('thumbnail_link', models.CharField(max_length=500)),
@@ -27,7 +30,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Publishing_Organization',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('abbreviation', models.CharField(max_length=20)),
                 ('created_on', models.DateTimeField()),
@@ -37,7 +43,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Region',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('created_on', models.DateTimeField()),
                 ('updated_on', models.DateTimeField()),
@@ -46,7 +55,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Region_Category',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
                 ('created_on', models.DateTimeField()),
                 ('updated_on', models.DateTimeField()),
@@ -55,21 +67,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User_Query',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('user_id', models.IntegerField()),
                 ('created_on', models.DateTimeField()),
                 ('updated_on', models.DateTimeField()),
-                ('region', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_app.Region')),
+                ('region',
+                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                   to='news_app.Region')),
             ],
         ),
         migrations.AddField(
             model_name='region',
             name='region_category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_app.Region_Category'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to='news_app.Region_Category'),
         ),
         migrations.AddField(
             model_name='article',
             name='publishing_organization',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_app.Publishing_Organization'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to='news_app.Publishing_Organization'),
         ),
     ]

@@ -3,6 +3,7 @@
 
 # Settings file
 *settings.py
+start-db.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
